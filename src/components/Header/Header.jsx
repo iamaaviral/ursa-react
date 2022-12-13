@@ -1,9 +1,8 @@
 import './Header.css';
 
 function Header() {
-  console.log("cosole is here")
   return (
-    <nav>
+    <nav className='nav'>
         <div className="logo">Spiderman</div>
          <ul>
             <li><a>Home</a></li>

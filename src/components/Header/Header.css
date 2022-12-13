@@ -13,3 +13,7 @@ nav ul{
     justify-content: space-evenly;
     list-style: none;
 }
+
+.logo {
+    color: greenyellow;
+  }
