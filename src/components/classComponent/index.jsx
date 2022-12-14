@@ -10,22 +10,33 @@
 
 
 import React from 'react';
-// const arr = [11,43,12,421]
-
+import Counter from '../counter';
 class Header extends React.Component {
     constructor(props)  {
         super(props);
         this.state = {
-            age: 15,
+            counter: 0,
+            age: 50
         }
         // console.log("This is the 1st step (constructor)")
     }
 
-    increaseAge() {
+    increaseCounter() {
        this.setState({
-            age: this.state.age + 1,
+            counter: this.state.counter + 5,
        })
     }
+
+    increaseAge() {
+        this.setState({
+             age: this.state.age + 1,
+        })
+     }
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     console.log(nextState)
+    //     alert("done")
+    //     return true
+    //   }
 
     componentDidMount() {
         //if my code is coming here 
@@ -56,8 +67,10 @@ class Header extends React.Component {
         return (
             <div>
                 <h1 id="header">My name is {this.props.id}</h1>
-                <div className={`mainApp ${this.state.age > 18 ? 'redApp' : 'blueApp'}`}>{this.state.age}</div>
-                <button onClick={() => this.increaseAge()}>Add age</button>
+                <div className={`mainApp ${this.state.counter > 18 ? 'redApp' : 'blueApp'}`}>{this.state.counter}  {this.state.age}</div>
+                <button onClick={() => this.increaseCounter()}>Add Counter</button>
+                <button onClick={() => this.increaseAge()}>Add Age</button>
+                {this.state.counter < 100 ? <Counter counter={this.state.counter} age={this.state.age}/> : null}
             </div>
         )
     }
